@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Meal</title>
 </head>
 <body>
-
+<p th:text="${meal.getId()}">VALUE</p>
+<p th:text="${meal.getName()}">VALUE</p>
+<p th:text="${meal.getCategory()}">VALUE</p>
+<p th:text="${meal.getPrice()}">VALUE</p>
 </body>
 </html>

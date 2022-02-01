@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create meal</title>
+</head>
+<body>
+<form th:method="post" th:action="@{/menu}" th:object="${meal}">
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Meal name Error</div>
+    <br/>
+    <label for="price">Enter price: </label>
+    <input type="number" th:field="*{price}" id="price"/>
+    <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Meal price Error</div>
+    <br/>
+    <label for="category">Enter category: </label>
+    <input type="MealCategory" th:field="*{category}" id="category"/>
+    <div style="color:red" th:if="${#fields.hasErrors('category')}" th:errors="*{category}">Meal category Error</div>
+    <br/>
+    <form th:action="/account/menu" th:method="post">
+        <button type="submit" value="Create!">Create</button>
+    </form>
+</form>
+</body>
+</html>

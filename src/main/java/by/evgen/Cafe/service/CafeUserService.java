@@ -1,31 +1,52 @@
 package by.evgen.Cafe.service;
 
+import by.evgen.Cafe.exception.MealNotFoundException;
 import by.evgen.Cafe.exception.UserNotFoundException;
-import by.evgen.Cafe.model.CafeUserModel;
+import by.evgen.Cafe.model.impl.CafeUserModel;
+import by.evgen.Cafe.model.impl.MealModel;
 import by.evgen.Cafe.repository.CafeUserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CafeUserService {
-    private CafeUserRepository userRepository;
+@Service
+public class CafeUserService implements CafeService<CafeUserModel>{
+    public static final String USER_NOT_FOUND_MESSAGE = "This user not found!";
+    private final CafeUserRepository repository;
 
-    public CafeUserModel findById(Long id) throws UserNotFoundException {
-        return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("This user not found!"));
+    @Autowired
+    public CafeUserService(CafeUserRepository userRepository) {
+        this.repository = userRepository;
     }
 
+    @Override
+    public CafeUserModel findById(Long id) throws UserNotFoundException {
+        return repository.findById(id).orElseThrow(() -> new UserNotFoundException(USER_NOT_FOUND_MESSAGE));
+    }
+
+    @Override
     public List<CafeUserModel> findAll(){
         List<CafeUserModel> cafeUsers = new ArrayList<>();
-        userRepository.findAll().forEach(cafeUsers::add);
+        repository.findAll().forEach(cafeUsers::add);
         return cafeUsers;
     }
 
-    public void saveUser(CafeUserModel cafeUser){
-        userRepository.save(cafeUser);
+    @Override
+    public void save(CafeUserModel cafeUser) throws UserNotFoundException {
+        CafeUserModel userShouldBeUpdated = repository.findById(cafeUser.getId())
+                .orElseThrow(() -> new UserNotFoundException(USER_NOT_FOUND_MESSAGE));
+        userShouldBeUpdated.setLogin(cafeUser.getLogin());
+        userShouldBeUpdated.setPassword(cafeUser.getPassword());
+        userShouldBeUpdated.setRole(cafeUser.getRole());
+        userShouldBeUpdated.setName(cafeUser.getName());
+        repository.save(userShouldBeUpdated);
     }
 
+    @Override
     public void deleteById(Long id){
-        userRepository.deleteById(id);
+        repository.deleteById(id);
     }
 
 }

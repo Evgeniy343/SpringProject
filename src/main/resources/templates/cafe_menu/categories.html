@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+<div th:each="el : ${categories}">
+    <a th:href="@{/account/menu/{category}/meals(category=${el.name()})}"
+       th:text="${el.name()}">category</a>
+</div>
+
+<br/>
+<a th:href="@{/account/menu/create}">Create new meal</a>
+
+</body>
+</html>

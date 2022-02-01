@@ -1,4 +1,4 @@
-package by.evgen.Cafe.model;
+package by.evgen.Cafe.model.impl;
 
 public enum RoleType {
     ADMIN,
