@@ -32,13 +32,18 @@ public class MealService implements CafeService<MealModel>{
     }
 
     @Override
-    public void save(MealModel meal) throws MealNotFoundException {
+    public void update(MealModel meal) throws MealNotFoundException {
         MealModel mealShouldBeUpdated = repository.findById(meal.getId())
                 .orElseThrow(() -> new MealNotFoundException(MEAL_NOT_FOUND_MESSAGE));
         mealShouldBeUpdated.setName(meal.getName());
         mealShouldBeUpdated.setPrice(meal.getPrice());
         mealShouldBeUpdated.setCategory(meal.getCategory());
         repository.save(mealShouldBeUpdated);
+    }
+
+    @Override
+    public void save(MealModel meal){
+        repository.save(meal);
     }
 
     @Override

@@ -6,9 +6,9 @@
 </head>
 <body>
 <div th:each="meal : ${meals}">
-    <div th:if="${categoryName == meal.getCategory().name()}">
-        <a th:href="@{/account/menu/{category}/meals/{id}(category=${categoryName}, id=${meal.getId()})}"
-           th:text="${meal.getName()} + ${meal.getCategory()}">meal</a>
+    <div th:if="${category == meal.getCategory().name}">
+        <a th:href="@{/account/menu/{category}/meals/{id}(category=${category}, id=${meal.getId()})}"
+           th:text="${meal.getName()} + ${meal.getCategory().name}">meal</a>
     </div>
 </div>
 </body>

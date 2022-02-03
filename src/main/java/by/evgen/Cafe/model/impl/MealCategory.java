@@ -1,11 +1,21 @@
 package by.evgen.Cafe.model.impl;
 
 public enum MealCategory {
-    SHAWARMA,
-    PIZZA,
-    SUSHI,
-    BURGERS,
-    HOT,
-    GRILLED,
-    DESSERT
+    SHAWARMA("Shawarma"),
+    PIZZA("Pizza"),
+    SUSHI("Sushi"),
+    BURGERS("Burgers"),
+    HOT("Hot"),
+    GRILLED("Grilled"),
+    DESSERT("Dessert");
+
+    private final String name;
+
+    MealCategory(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

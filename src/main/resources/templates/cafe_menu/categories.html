@@ -6,8 +6,8 @@
 </head>
 <body>
 <div th:each="el : ${categories}">
-    <a th:href="@{/account/menu/{category}/meals(category=${el.name()})}"
-       th:text="${el.name()}">category</a>
+    <a th:href="@{/account/menu/{category}/meals(category=${el.name})}"
+       th:text="${el.name}">category</a>
 </div>
 
 <br/>

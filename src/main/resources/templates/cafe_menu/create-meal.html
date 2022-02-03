@@ -1,26 +1,41 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Create meal</title>
 </head>
 <body>
-<form th:method="post" th:action="@{/menu}" th:object="${meal}">
-    <label for="name">Enter name: </label>
-    <input type="text" th:field="*{name}" id="name"/>
-    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Meal name Error</div>
+<form th:method="post" th:action="@{/account/menu/create}" th:object="${meal}">
+
+    <div class="form-group">
+        <label th:for="name">Enter name: </label>
+        <input type="text" th:field="*{name}" id="name"/>
+        <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Meal name Error</div>
+    </div>
+
     <br/>
-    <label for="price">Enter price: </label>
-    <input type="number" th:field="*{price}" id="price"/>
-    <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Meal price Error</div>
+
+    <div class="form-group">
+        <label th:for="price">Enter price: </label>
+        <input type="text" th:field="*{price}" id="price"/>
+        <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Meal price Error</div>
+    </div>
+
     <br/>
-    <label for="category">Enter category: </label>
-    <input type="MealCategory" th:field="*{category}" id="category"/>
-    <div style="color:red" th:if="${#fields.hasErrors('category')}" th:errors="*{category}">Meal category Error</div>
+
+    <div class="form-group">
+        <label th:for="category">Choose category: </label>
+        <select th:field="*{category}" id="category">
+            <option th:each="category : ${mealCategories}"
+                    th:text="${category.name}"
+                    th:value="${category}">
+            </option>
+        </select>
+    </div>
+
     <br/>
-    <form th:action="/account/menu" th:method="post">
-        <button type="submit" value="Create!">Create</button>
-    </form>
+
+    <input type="submit" value="Create meal">
 </form>
 </body>
 </html>

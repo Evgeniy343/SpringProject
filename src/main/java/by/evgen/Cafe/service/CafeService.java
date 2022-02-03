@@ -9,6 +9,7 @@ import java.util.List;
 public interface CafeService<T extends CafeModel> {
     T findById(Long id) throws Exception;
     List<T> findAll();
-    void save(T model) throws Exception;
+    void save(T model);
+    void update(T model) throws Exception;
     void deleteById(Long id);
 }

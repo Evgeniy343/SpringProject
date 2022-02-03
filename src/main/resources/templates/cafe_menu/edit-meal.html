@@ -1,10 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Update meal</title>
 </head>
 <body>
+<form action="#"
+      th:action="@{/account/menu/{category}/meals/{id}/edit(category=${category}, id=${meal.getId()})}"
+      th:object="${meal}"
+      th:method="post">
 
+        <label th:for="name">Enter meal name: </label>
+        <input type="text" th:field="*{name}" id="name"/>
+        <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Meal name Error</div>
+
+        <br/>
+
+        <label th:for="price">Enter meal price: </label>
+        <input type="text" th:field="*{price}" id="price"/>
+        <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Meal price Error</div>
+
+        <br/>
+
+        <label th:for="category">Enter meal category: </label>
+        <input readonly type="text" th:field="*{category}" id="category"/>
+
+        <br/>
+
+    <br/>
+    <input type="submit" value="Update meal">
+</form>
 </body>
 </html>

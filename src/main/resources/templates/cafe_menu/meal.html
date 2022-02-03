@@ -9,5 +9,15 @@
 <p th:text="${meal.getName()}">VALUE</p>
 <p th:text="${meal.getCategory()}">VALUE</p>
 <p th:text="${meal.getPrice()}">VALUE</p>
+
+<form th:action="@{/account/menu/{category}/meals/{id}/delete(category=${category}, id=${meal.getId()})}"
+      method="post">
+    <button type="submit">Delete</button>
+</form>
+
+<form th:action="@{/account/menu/{category}/meals/{id}/edit(category=${category}, id=${meal.getId()})}"
+      method="post">
+    <button type="submit">Edit</button>
+</form>
 </body>
 </html>

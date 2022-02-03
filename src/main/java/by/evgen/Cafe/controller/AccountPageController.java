@@ -14,7 +14,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 
 @Controller
 @RequestMapping("/account")
@@ -51,7 +50,6 @@ public class AccountPageController {
     @GetMapping("/menu/{category}/meals")
     public String viewMeals(@PathVariable("category") String categoryName, Model model) {
         model.addAttribute("meals", mealService.findAll());
-        model.addAttribute("categoryName", categoryName);
         return "cafe_menu/meals";
     }
 
@@ -63,41 +61,43 @@ public class AccountPageController {
     }
 
     @GetMapping("/menu/create")
-    public String createMealForm() {
+    public String createMealForm(Model model) {
+        model.addAttribute("meal",new MealModel());
+        model.addAttribute("mealCategories", MealCategory.values());
         return "cafe_menu/create-meal";
     }
 
-    @PostMapping("/menu")
-    public String createMeal(@RequestParam String name, @RequestParam Double price, @RequestParam MealCategory category,
-                             @Valid MealModel meal, BindingResult bindingResult)
-            throws MealNotFoundException {
+    @PostMapping("/menu/create")
+    public String createMeal(@ModelAttribute("meal") @Valid MealModel meal, BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "cafe_menu/create-meal";
         mealService.save(meal);
-        return "redirect:/menu";
+        return "redirect:/account/menu";
     }
 
-    @PostMapping("/{id}")
-    public String deleteMeal(@PathVariable("id") Long id) {
+    @PostMapping("/menu/{category}/meals/{id}/delete")
+    public String deleteMeal(@PathVariable("id") Long id, @PathVariable("category") String categoryName) {
         mealService.deleteById(id);
-        return "redirect:/menu/{category}/meals";
+        return "redirect:/account/menu/{category}/meals";
     }
 
     @GetMapping("/menu/{category}/meals/{id}/edit")
     public String editMealForm(@PathVariable("category") MealCategory category,
                                @PathVariable("id") Long id, Model model) throws MealNotFoundException {
-        model.addAttribute("meal", mealService.findById(id));
+        MealModel meal = mealService.findById(id);
+        model.addAttribute("meal", meal);
         return "cafe_menu/edit-meal";
     }
 
 
-    @PostMapping("/{id}")
+    @PostMapping("/menu/{category}/meals/{id}/edit")
     public String editMeal(@ModelAttribute("meal") @Valid MealModel meal, BindingResult bindingResult,
-                           @PathVariable("id") Long id) throws MealNotFoundException {
+                           @PathVariable("id") Long id,
+                           @PathVariable("category") String categoryName) throws MealNotFoundException {
         if (bindingResult.hasErrors())
             return "cafe_menu/edit-meal";
-        mealService.save(meal);
-        return "redirect:/menu/{category}/meals";
+        mealService.update(meal);
+        return "redirect:/account/menu/{category}/meals";
     }
 
 

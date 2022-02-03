@@ -34,7 +34,7 @@ public class CafeUserService implements CafeService<CafeUserModel>{
     }
 
     @Override
-    public void save(CafeUserModel cafeUser) throws UserNotFoundException {
+    public void update(CafeUserModel cafeUser) throws UserNotFoundException {
         CafeUserModel userShouldBeUpdated = repository.findById(cafeUser.getId())
                 .orElseThrow(() -> new UserNotFoundException(USER_NOT_FOUND_MESSAGE));
         userShouldBeUpdated.setLogin(cafeUser.getLogin());
@@ -42,6 +42,11 @@ public class CafeUserService implements CafeService<CafeUserModel>{
         userShouldBeUpdated.setRole(cafeUser.getRole());
         userShouldBeUpdated.setName(cafeUser.getName());
         repository.save(userShouldBeUpdated);
+    }
+
+    @Override
+    public void save(CafeUserModel cafeUser){
+        repository.save(cafeUser);
     }
 
     @Override
