@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class MealService implements CafeService<MealModel>{
+public class CafeMealService implements CafeService<MealModel>{
     public static final String MEAL_NOT_FOUND_MESSAGE = "This meal not found";
     private final MealRepository repository;
 
     @Autowired
-    public MealService(MealRepository repository) {
+    public CafeMealService(MealRepository repository) {
         this.repository = repository;
     }
 

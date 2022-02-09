@@ -1,9 +1,7 @@
 package by.evgen.Cafe.service;
 
-import by.evgen.Cafe.exception.MealNotFoundException;
 import by.evgen.Cafe.exception.UserNotFoundException;
 import by.evgen.Cafe.model.impl.CafeUserModel;
-import by.evgen.Cafe.model.impl.MealModel;
 import by.evgen.Cafe.repository.CafeUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class CafeUserService implements CafeService<CafeUserModel>{
+public class CafeUserService implements UserService {
     public static final String USER_NOT_FOUND_MESSAGE = "This user not found!";
     private final CafeUserRepository repository;
 
@@ -54,4 +52,16 @@ public class CafeUserService implements CafeService<CafeUserModel>{
         repository.deleteById(id);
     }
 
+
+    @Override
+    public CafeUserModel findByLoginAndPassword(String login, String password) throws UserNotFoundException {
+        List<CafeUserModel> cafeUsers = new ArrayList<>();
+        repository.findAll().forEach(cafeUsers::add);
+        for (CafeUserModel cafeUser : cafeUsers) {
+            if(cafeUser.getLogin().equals(login) && cafeUser.getPassword().equals(password)){
+                return cafeUser;
+            }
+        }
+        throw new UserNotFoundException(USER_NOT_FOUND_MESSAGE);
+    }
 }
