@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main_header {
+    font-size: 80px;
+    width: 100%;
+    height: auto;
+    font-family: "Monotype Corsiva", cursive;
+    color: #8B0000;
+    text-align: center;
+    background: linear-gradient(45deg, #EECFBA, #C5DDE8);
+}
+
+.main_header img {
+    height: 80px;
+    width: 180px;
+    margin-top: 30px;
+}
+
+.authorization {
+    height: 40px;
+    width: 90px;
+    font-family: monospace;
+    color: black;
+    float: right;
+    margin: 50px 30px 0 0;
+    border-radius: 10px;
+    background: darkkhaki;
+}
+
+.registration {
+    height: 40px;
+    width: 90px;
+    font-family: monospace;
+    color: black;
+    float: right;
+    margin: 50px 30px 0 0;
+    border-radius: 10px;
+    background: darkkhaki;
+}
+
+.block img {
+    height: 100%;
+    float: left;
+}
+
+.search_form {
+    height: 40px;
+}
+
+.search_field {
+    padding: 10px;
+    height: 30px;
+    width: 600px;
+}
+
+.search_button {
+    height: 30px;
+}
+
+.category_list {
+    float: right;
+    list-style-type: none;
+}
+
+.category_list img {
+    width: 200px;
+    height: 200px;
+}
+
+.categories_label{
+    font-family: "Courier New", monospace;
+    font-size: 30px;
+    text-align: center;
+    color: peru;
+}

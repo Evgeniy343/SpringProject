@@ -36,7 +36,7 @@ public class AccountPageController {
                                       Model model) throws UserNotFoundException {
         CafeUserModel authorizedUser = userService.findByLoginAndPassword(login, password);
         if(authorizedUser == null){
-            return "cafe_authentication/get/authorization";
+            return "cafe/html/authentication/authorization";
         }
         model.addAttribute("authorizedUser",authorizedUser);
         String accountUrl = "/account/" + authorizedUser.getId();
@@ -47,51 +47,50 @@ public class AccountPageController {
     public String account(@PathVariable Long id,Model model) throws UserNotFoundException {
         CafeUserModel authorizedUser = userService.findById(id);
         model.addAttribute("authorizedUser", authorizedUser);
-        return "cafe_account/get/account";
+        return "cafe/html/account/account";
     }
-
-    @GetMapping("/users")
-    public String viewUsers(Model model) {
-        model.addAttribute("users", userService.findAll());
-        return "cafe_user/get/users";
-    }
-
-    @GetMapping("/users/{id}")
-    public String viewUser(@PathVariable("id") Long id, Model model) throws UserNotFoundException {
-        model.addAttribute("user", userService.findById(id));
-        return "cafe_user/get/user";
-    }
+//    @GetMapping("/users")
+//    public String viewUsers(Model model) {
+//        model.addAttribute("users", userService.findAll());
+//        return "cafe_user/get/users";
+//    }
+//
+//    @GetMapping("/users/{id}")
+//    public String viewUser(@PathVariable("id") Long id, Model model) throws UserNotFoundException {
+//        model.addAttribute("user", userService.findById(id));
+//        return "cafe_user/get/user";
+//    }
 
     @GetMapping("/menu")
     public String viewMenu(Model model) {
         model.addAttribute("categories", MealCategory.values());
-        return "cafe_menu/get/categories";
+        return "cafe/html/menu/categories";
     }
 
     @GetMapping("/menu/{category}/meals")
     public String viewMeals(@PathVariable("category") String categoryName, Model model) {
         model.addAttribute("meals", mealService.findAll());
-        return "cafe_menu/get/meals";
+        return "cafe/html/menu/meals";
     }
 
     @GetMapping("/menu/{category}/meals/{id}")
     public String viewMeal(@PathVariable("category") String categoryName,
                            @PathVariable("id") Long id, Model model) throws MealNotFoundException {
         model.addAttribute("meal", mealService.findById(id));
-        return "cafe_menu/get/meal";
+        return "cafe/html/menu/meal";
     }
 
     @GetMapping("/menu/create")
     public String createMealForm(Model model) {
         model.addAttribute("meal",new MealModel());
         model.addAttribute("mealCategories", MealCategory.values());
-        return "cafe_menu/post/create-meal";
+        return "cafe/html/menu/create-meal";
     }
 
     @PostMapping("/menu/create")
     public String createMeal(@ModelAttribute("meal") @Valid MealModel meal, BindingResult bindingResult) {
         if (bindingResult.hasErrors())
-            return "cafe_menu/post/create-meal";
+            return "cafe/html/menu/create-meal";
         mealService.save(meal);
         return "redirect:/account/menu";
     }
@@ -107,7 +106,7 @@ public class AccountPageController {
                                @PathVariable("id") Long id, Model model) throws MealNotFoundException {
         MealModel meal = mealService.findById(id);
         model.addAttribute("meal", meal);
-        return "cafe_menu/post/edit-meal";
+        return "cafe/html/menu/edit-meal";
     }
 
 
@@ -116,7 +115,7 @@ public class AccountPageController {
                            @PathVariable("id") Long id,
                            @PathVariable("category") String categoryName) throws MealNotFoundException {
         if (bindingResult.hasErrors())
-            return "cafe_menu/post/edit-meal";
+            return "cafe/html/menu/edit-meal";
         mealService.update(meal);
         return "redirect:/account/menu/{category}/meals";
     }

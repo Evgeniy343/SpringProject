@@ -17,7 +17,7 @@
         <br/>
 
         <label th:for="price">Enter meal price: </label>
-        <input type="text" th:field="*{price}" id="price"/>
+        <input type="number" th:field="*{price}" id="price"/>
         <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Meal price Error</div>
 
         <br/>
