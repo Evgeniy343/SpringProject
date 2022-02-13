@@ -18,7 +18,7 @@
 .main_article img {
     padding: 0;
     height: 80px;
-    width: 180px;
+    width: 130px;
     margin-top: 30px;
 }
 
@@ -34,6 +34,7 @@
     border-radius: 10px;
     background: darkkhaki;
     margin: 50px 30px 0 0;
+    border: 3px solid maroon;
 }
 
 .registration {
@@ -48,6 +49,7 @@
     margin: 50px 30px 0 0;
     border-radius: 10px;
     background: darkkhaki;
+    border: 3px solid maroon;
 }
 
 .search_form {
@@ -55,13 +57,23 @@
 }
 
 .search_field {
+    font-family: inherit;
     margin: 40px 10px auto 100px;
-    height: 30px;
-    width: 600px;
+    height: 35px;
+    width: 700px;
+    color: black;
+    background-color: #EECFBA;
+    border: 3px solid maroon;
 }
 
 .search_button {
-    height: 30px;
+    height: 35px;
+    width: 90px;
+    font-family: monospace;
+    color: black;
+    border-radius: 10px;
+    background: darkkhaki;
+    border: 3px solid maroon;
 }
 
 .category_list {
