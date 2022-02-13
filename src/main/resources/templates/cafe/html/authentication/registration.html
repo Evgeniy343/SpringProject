@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Registration</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/main_page/main_page.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/authentication/registration.css}">
 </head>
 <body>
+<h1 th:insert="blocks/headers :: header"></h1>
 
+    <form>
+        <div class="registration_title">
+            <h1 class="secondary_title">Registration</h1>
+        </div>
+
+        <div class="registration_form">
+            <label for="name"><b>Name</b></label>
+            <br>
+            <input type="text" placeholder="Enter name" id="name">
+            <br>
+            <br>
+            <label for="login"><b>Login</b></label>
+            <br>
+            <input type="text" placeholder="Enter login" id="login">
+            <br>
+            <br>
+            <label for="password"><b>Password</b></label>
+            <br>
+            <input type="password" placeholder="Enter password" id="password">
+            <br>
+            <label for="password_repeat"></label>
+            <br>
+            <input type="password" placeholder="Repeat password" id="password_repeat">
+        </div>
+
+
+        <br>
+        <br>
+        <input class="sign_up" type="submit" value="Sign up">
+    </form>
 </body>
 </html>

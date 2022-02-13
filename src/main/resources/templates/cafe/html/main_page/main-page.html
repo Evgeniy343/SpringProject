@@ -3,53 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Snacks at Zhendos</title>
+    <link rel="shortcut icon" th:href="@{cafe/img/head/head.ico}" type="image/x-icon">
     <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/main_page/main_page.css}">
 </head>
 <body>
-    <h1 class="main_header">
-        Welcome to Snacks at Zhendos
-        <img th:src="@{/cafe/img/main_page/header.jpg}" alt="Barrel of beer">
-        <input class="authorization" type="button" value="Sign in">
-        <input class="registration" type="button" value="Sing up">
-    </h1>
 
-    <div class="block">
-        <img th:src="@{/cafe/img/main_page/left_block.jpg}" alt="Picture with meal">
-        <form class="search_form">
-            <label for="find"></label>
-            <p><input class="search_field" type="search" name="q" placeholder="Find meal" id="find">
-                <input class="search_button" type="submit" value="Search"></p>
-        </form>
-        <ul class="category_list">
-            <p class="categories_label">Categories</p>
-            <a href="https://www.google.com/">
-                <li><img th:src="@{/cafe/img/main_page/shawarma.jpg}" alt="Shawarma"></li>
-            </a>
+<h1 th:insert="blocks/headers :: main_page_header"></h1>
 
-            <a href="https://www.google.com/">
-                <li><img th:src="@{/cafe/img/main_page/pizza.jpg}" alt="Pizza"></li>
-            </a>
 
-            <a href="https://www.google.com/">
-                <li><img th:src="@{/cafe/img/main_page/sushi.jpg}" alt="Sushi"></li>
-            </a>
+<div>
+    <form class="search_form">
+        <label for="find"></label>
+        <p><input class="search_field" type="search" name="q" placeholder="Find meal" id="find">
+            <input class="search_button" type="submit" value="Search"></p>
+    </form>
+    <ul class="category_list">
+        <p class="categories_label">Categories</p>
+        <a href="https://www.google.com/">
+            <li><img th:src="@{/cafe/img/main_page/shawarma.jpg}" alt="Shawarma" title="Shawarma"></li>
+        </a>
 
-            <a href="https://www.google.com/">
-                <li><img th:src="@{/cafe/img/main_page/burgers.jpg}" alt="Burgers"></li>
-            </a>
+        <a href="https://www.google.com/">
+            <li><img th:src="@{/cafe/img/main_page/pizza.jpg}" alt="Pizza" title="Pizza"></li>
+        </a>
 
-            <a href="https://www.google.com/">
-                <li><img th:src="@{/cafe/img/main_page/hot.jpg}" alt="Hot"></li>
-            </a>
+        <a href="https://www.google.com/">
+            <li><img th:src="@{/cafe/img/main_page/sushi.jpg}" alt="Sushi" title="Sushi"></li>
+        </a>
 
-            <a href="https://www.google.com/">
-                <li><img th:src="@{/cafe/img/main_page/grilled.jpg}" alt="Grilled"></li>
-            </a>
+        <a href="https://www.google.com/">
+            <li><img th:src="@{/cafe/img/main_page/burgers.jpg}" alt="Burgers" title="Burgers"></li>
+        </a>
 
-            <a href="https://www.google.com/">
-                <li><img th:src="@{/cafe/img/main_page/desert.jpg}" alt="Desert"></li>
-            </a>
-        </ul>
-    </div>
+        <a href="https://www.google.com/">
+            <li><img th:src="@{/cafe/img/main_page/hot.jpg}" alt="Hot" title="Hot"></li>
+        </a>
+
+        <a href="https://www.google.com/">
+            <li><img th:src="@{/cafe/img/main_page/grilled.jpg}" alt="Grilled" title="Grilled"></li>
+        </a>
+
+        <a href="https://www.google.com/">
+            <li><img th:src="@{/cafe/img/main_page/desert.jpg}" alt="Desert" title="Desert"></li>
+        </a>
+    </ul>
+</div>
 </body>
 </html>

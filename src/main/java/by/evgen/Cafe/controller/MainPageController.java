@@ -21,7 +21,7 @@ public class MainPageController {
     }
 
     @GetMapping("/registration")
-    public String registrationForm(Model model){
+    public String registrationForm(){
         return "cafe/html/authentication/registration";
     }
 }
