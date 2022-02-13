@@ -3,32 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Update meal</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/blocks/headers.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/menu/edit-meal.css}">
 </head>
 <body>
-<form action="#"
+
+<h1 th:insert="blocks/headers :: header"></h1>
+
+<form class="edit_form" action="#"
       th:action="@{/account/menu/{category}/meals/{id}/edit(category=${category}, id=${meal.getId()})}"
       th:object="${meal}"
       th:method="post">
 
-        <label th:for="name">Enter meal name: </label>
-        <input type="text" th:field="*{name}" id="name"/>
-        <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Meal name Error</div>
-
-        <br/>
-
-        <label th:for="price">Enter meal price: </label>
-        <input type="number" th:field="*{price}" id="price"/>
-        <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Meal price Error</div>
-
-        <br/>
-
-        <label th:for="category">Enter meal category: </label>
-        <input readonly type="text" th:field="*{category}" id="category"/>
-
-        <br/>
+    <label th:for="name"><b>Enter meal name:</b> </label>
+    <br>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Meal name Error</div>
 
     <br/>
-    <input type="submit" value="Update meal">
+
+    <label th:for="price"><b>Enter meal price:</b> </label>
+    <br>
+    <input type="number" th:field="*{price}" id="price"/>
+    <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Meal price Error</div>
+
+    <br/>
+
+    <label th:for="category"><b>Meal category:</b> </label>
+    <br>
+    <input readonly type="text" th:field="*{category}" id="category"/>
+
+    <br/>
+
+    <br/>
+    <input class="edit_button" type="submit" value="Update meal">
 </form>
 </body>
 </html>

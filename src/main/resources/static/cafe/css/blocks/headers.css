@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.main_article {
+    padding: 0;
+    margin: 0;
+    font-size: 80px;
+    width: 100%;
+    height: auto;
+    font-family: "Monotype Corsiva", cursive;
+    color: #8B0000;
+    text-align: center;
+    background: linear-gradient(45deg, #EECFBA, #C5DDE8);
+}
+
+.main_article img {
+    padding: 0;
+    height: 80px;
+    width: 130px;
+    margin-top: 30px;
+}
+
+.authorization {
+    float: right;
+}
+
+.authorization input[type=submit]{
+    height: 40px;
+    width: 90px;
+    font-family: monospace;
+    color: black;
+    border-radius: 10px;
+    background: darkkhaki;
+    margin: 50px 30px 0 0;
+    border: 3px solid maroon;
+}
+
+.registration {
+    float: right;
+}
+
+.registration input[type=submit]{
+    height: 40px;
+    width: 90px;
+    font-family: monospace;
+    color: black;
+    margin: 50px 30px 0 0;
+    border-radius: 10px;
+    background: darkkhaki;
+    border: 3px solid maroon;
+}

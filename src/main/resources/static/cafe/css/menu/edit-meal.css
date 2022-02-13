@@ -1,0 +1,39 @@
+.edit_form{
+    margin-top: 100px;
+    margin-left: 500px;
+}
+
+#name{
+    width: 500px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #EECFBA;
+    border: 3px solid maroon;
+}
+
+#price{
+    width: 500px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #EECFBA;
+    border: 3px solid maroon;
+}
+
+#category{
+    width: 500px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #EECFBA;
+    border: 3px solid maroon;
+}
+
+.edit_button{
+    margin-left: 210px;
+    height: 40px;
+    width: 110px;
+    font-family: monospace;
+    color: black;
+    border-radius: 10px;
+    background: darkkhaki;
+    border: 3px solid maroon;
+}

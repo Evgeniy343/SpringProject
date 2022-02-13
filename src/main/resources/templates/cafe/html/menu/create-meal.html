@@ -3,28 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Create meal</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/blocks/headers.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/menu/create-meal.css}">
 </head>
 <body>
-<form th:method="post" th:action="@{/account/menu/create}" th:object="${meal}">
 
-    <div class="form-group">
-        <label th:for="name">Enter name: </label>
-        <input type="text" th:field="*{name}" id="name"/>
+<h1 th:insert="blocks/headers :: header"></h1>
+
+<form class="create_form" th:method="post" th:action="@{/account/menu/create}" th:object="${meal}">
+
+    <div>
+        <label th:for="name"><b>Enter name:</b></label>
+        <br>
+        <input type="text" th:field="*{name}" id="name" placeholder="Name"/>
         <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Meal name Error</div>
     </div>
 
     <br/>
 
-    <div class="form-group">
-        <label th:for="price">Enter price: </label>
-        <input type="text" th:field="*{price}" id="price"/>
+    <div>
+        <label th:for="price"><b>Enter price:</b> </label>
+        <br>
+        <input type="text" th:field="*{price}" id="price" placeholder="Price"/>
         <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Meal price Error</div>
     </div>
 
     <br/>
 
-    <div class="form-group">
-        <label th:for="category">Choose category: </label>
+    <div>
+        <label th:for="category"><b>Choose category:</b></label>
         <select th:field="*{category}" id="category">
             <option th:each="category : ${mealCategories}"
                     th:text="${category.name}"
@@ -35,7 +42,7 @@
 
     <br/>
 
-    <input type="submit" value="Create meal">
+    <input class="create_button" type="submit" value="Create meal">
 </form>
 </body>
 </html>
