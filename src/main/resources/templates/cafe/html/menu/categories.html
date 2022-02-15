@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Menu</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/menu/categories.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/blocks/headers.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/blocks/category_panel.css}">
 </head>
 <body>
-<div th:each="el : ${categories}">
-    <a th:href="@{/account/menu/{category}/meals(category=${el.name})}"
-       th:text="${el.name}">category</a>
-</div>
 
-<br/>
-<a th:href="@{/account/menu/create}">Create new meal</a>
+<h1 th:insert="blocks/headers :: menu_header"></h1>
+
+<div th:insert="blocks/category_panel :: category_panel"></div>
 
 </body>
 </html>

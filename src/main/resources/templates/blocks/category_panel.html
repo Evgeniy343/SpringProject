@@ -1,0 +1,32 @@
+<div th:fragment="category_panel">
+    <ul class="category_list">
+        <p class="categories_label">Categories</p>
+        <a th:href="@{/main_page/{category}/meals(category=${categories[0].name})}">
+            <li><img th:src="@{/cafe/img/main_page/shawarma.jpg}" alt="Shawarma" title="Shawarma"></li>
+        </a>
+
+        <a th:href="@{/main_page/{category}/meals(category=${categories[1].name})}">
+            <li><img th:src="@{/cafe/img/main_page/pizza.jpg}" alt="Pizza" title="Pizza"></li>
+        </a>
+
+        <a th:href="@{/main_page/{category}/meals(category=${categories[2].name})}">
+            <li><img th:src="@{/cafe/img/main_page/sushi.jpg}" alt="Sushi" title="Sushi"></li>
+        </a>
+
+        <a th:href="@{/main_page/{category}/meals(category=${categories[3].name})}">
+            <li><img th:src="@{/cafe/img/main_page/burgers.jpg}" alt="Burgers" title="Burgers"></li>
+        </a>
+
+        <a th:href="@{/main_page/{category}/meals(category=${categories[4].name})}">
+            <li><img th:src="@{/cafe/img/main_page/hot.jpg}" alt="Hot" title="Hot"></li>
+        </a>
+
+        <a th:href="@{/main_page/{category}/meals(category=${categories[5].name})}">
+            <li><img th:src="@{/cafe/img/main_page/grilled.jpg}" alt="Grilled" title="Grilled"></li>
+        </a>
+
+        <a th:href="@{/main_page/{category}/meals(category=${categories[6].name})}">
+            <li><img th:src="@{/cafe/img/main_page/desert.jpg}" alt="Desert" title="Desert"></li>
+        </a>
+    </ul>
+</div>

@@ -6,6 +6,7 @@
     <link rel="shortcut icon" th:href="@{cafe/img/head/head.ico}" type="image/x-icon">
     <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/main_page/main_page.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/blocks/headers.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/blocks/category_panel.css}">
 </head>
 <body>
 
@@ -20,36 +21,9 @@
         <p><input class="search_field" type="search" name="q" placeholder="Find meal" id="find">
             <input class="search_button" type="submit" value="Search"></p>
     </form>
-    <ul class="category_list">
-        <p class="categories_label">Categories</p>
-        <a th:href="@{/main_page/{category}/meals(category=${categories[0].name})}">
-            <li><img th:src="@{/cafe/img/main_page/shawarma.jpg}" alt="Shawarma" title="Shawarma"></li>
-        </a>
 
-        <a th:href="@{/main_page/{category}/meals(category=${categories[1].name})}">
-            <li><img th:src="@{/cafe/img/main_page/pizza.jpg}" alt="Pizza" title="Pizza"></li>
-        </a>
+    <div th:insert="blocks/category_panel :: category_panel"></div>
 
-        <a th:href="@{/main_page/{category}/meals(category=${categories[2].name})}">
-            <li><img th:src="@{/cafe/img/main_page/sushi.jpg}" alt="Sushi" title="Sushi"></li>
-        </a>
-
-        <a th:href="@{/main_page/{category}/meals(category=${categories[3].name})}">
-            <li><img th:src="@{/cafe/img/main_page/burgers.jpg}" alt="Burgers" title="Burgers"></li>
-        </a>
-
-        <a th:href="@{/main_page/{category}/meals(category=${categories[4].name})}">
-            <li><img th:src="@{/cafe/img/main_page/hot.jpg}" alt="Hot" title="Hot"></li>
-        </a>
-
-        <a th:href="@{/main_page/{category}/meals(category=${categories[5].name})}">
-            <li><img th:src="@{/cafe/img/main_page/grilled.jpg}" alt="Grilled" title="Grilled"></li>
-        </a>
-
-        <a th:href="@{/main_page/{category}/meals(category=${categories[6].name})}">
-            <li><img th:src="@{/cafe/img/main_page/desert.jpg}" alt="Desert" title="Desert"></li>
-        </a>
-    </ul>
 </div>
 </body>
 </html>

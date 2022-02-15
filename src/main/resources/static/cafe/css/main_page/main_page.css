@@ -26,27 +26,3 @@
     background: darkkhaki;
     border: 3px solid maroon;
 }
-
-.category_list {
-    padding: 0;
-    margin: 0;
-    float: right;
-    list-style-type: none;
-}
-
-.category_list img {
-    width: 200px;
-    height: 200px;
-    transition: 1s;
-}
-
-.category_list img:hover{
-    transform: scale(1.3);
-}
-
-.categories_label{
-    font-family: "Courier New", monospace;
-    font-size: 30px;
-    text-align: center;
-    color: peru;
-}

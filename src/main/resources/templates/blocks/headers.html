@@ -19,3 +19,14 @@
         </form>
     </h1>
 </div>
+
+<div th:fragment="menu_header">
+    <h1 class="main_article">
+        Welcome to Snacks at Zhendos
+        <img th:src="@{/cafe/img/main_page/header.gif}" alt="Barrel of beer">
+
+        <form class="create" th:action="@{/account/menu/create}" th:method="get">
+            <input class="create_button" type="submit" value="Create meal">
+        </form>
+    </h1>
+</div>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Meals</title>
     <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/blocks/headers.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/menu/meals.css}">
 </head>
 <body>
 
@@ -11,8 +12,13 @@
 
 <div th:each="meal : ${meals}">
     <div th:if="${category == meal.getCategory().name}">
-        <a th:href="@{/account/menu/{category}/meals/{id}(category=${category}, id=${meal.getId()})}"
-           th:text="${meal.getName()} + ${meal.getCategory().name}">meal</a>
+        <div class="category_meal_data">
+            <p th:text="'Id - ' + ${meal.getId()}"></p>
+            <p th:text="'Name - ' + ${meal.getName()}"></p>
+            <a th:href="@{/account/menu/{category}/meals/{id}(category=${category}, id=${meal.getId()})}">
+                <img th:src="@{${meal.getImage()}}" th:alt="${meal.getName()}" alt="">
+            </a>
+        </div>
     </div>
 </div>
 </body>

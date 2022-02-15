@@ -39,3 +39,11 @@
     height: 200px;
     width: 300px;
 }
+
+.meal_data p{
+    font-size: 30px;
+    color: black;
+    font-family: "Cambria Math", cursive;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px olivedrab,2px 2px 1px darkgreen;
+}
