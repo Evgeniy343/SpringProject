@@ -35,9 +35,17 @@ public class MealModel implements CafeModel {
     @Enumerated(EnumType.ORDINAL)
     private MealCategory category;
 
-    public MealModel(String name, Double price, MealCategory category) {
+    @Column(name = "image_name")
+    private String image;
+
+    public MealModel(String name, Double price, MealCategory category, String image) {
         this.name = name;
         this.price = price;
         this.category = category;
+        this.image = image;
+    }
+
+    public String getImage() {
+        return "/cafe/img/menu/" + image;
     }
 }

@@ -21,16 +21,16 @@ public class MainPageController {
         this.mealService = mealService;
     }
 
-    @GetMapping("/authorization")
-    public String authorizationForm(Model model){
-        model.addAttribute("user",new CafeUserModel());
-        return "cafe/html/authentication/authorization";
-    }
-
     @GetMapping()
     public String mainPage(Model model){
         model.addAttribute("categories", MealCategory.values());
         return "cafe/html/main_page/main-page";
+    }
+
+    @GetMapping("/authorization")
+    public String authorizationForm(Model model){
+        model.addAttribute("user",new CafeUserModel());
+        return "cafe/html/authentication/authorization";
     }
 
     @GetMapping("/registration")
