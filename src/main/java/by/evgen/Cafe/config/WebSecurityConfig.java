@@ -26,19 +26,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
-    //    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-////        auth.inMemoryAuthentication()
-////                .withUser("Evgeniy2001").password("27112001").roles("ADMIN")
-////                .and()
-////                .withUser("Denis1993").password("32465464").roles("ADMIN")
-////                .and()
-////                .withUser("Elena1968").password("24122002").roles("USER")
-////                .and()
-////                .withUser("Sergey1963").password("43425342").roles("USER");
-//        auth.userDetailsService(userDetailsService);
-//    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http

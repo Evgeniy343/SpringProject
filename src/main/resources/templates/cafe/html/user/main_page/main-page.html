@@ -14,9 +14,9 @@
 <h1 th:insert="blocks/headers :: user_header"></h1>
 
 <div>
-    <form class="search_form">
+    <form class="search_form" th:object="${meal}" th:action="@{/user/menu/find}" th:method="post">
         <label for="find"></label>
-        <p><input class="search_field" type="search" name="q" placeholder="Find meal" id="find">
+        <p><input class="search_field" type="search" name="q" th:field="*{name}" placeholder="Find meal" id="find">
             <input class="search_button" type="submit" value="Search"></p>
     </form>
 

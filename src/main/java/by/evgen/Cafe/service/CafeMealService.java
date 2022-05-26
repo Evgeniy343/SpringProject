@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class CafeMealService implements CafeService<MealModel> {
+public class CafeMealService implements MealService {
     public static final String MEAL_NOT_FOUND_MESSAGE = "This meal not found";
     private final MealRepository repository;
 
@@ -49,5 +49,18 @@ public class CafeMealService implements CafeService<MealModel> {
     @Override
     public void deleteById(Long id) {
         repository.deleteById(id);
+    }
+
+
+    @Override
+    public MealModel findByName(String name) throws MealNotFoundException {
+        List<MealModel> meals = new ArrayList<>();
+        repository.findAll().forEach(meals::add);
+        for (MealModel meal : meals) {
+            if (meal.getName().equals(name)) {
+                return meal;
+            }
+        }
+        throw new MealNotFoundException(MEAL_NOT_FOUND_MESSAGE);
     }
 }

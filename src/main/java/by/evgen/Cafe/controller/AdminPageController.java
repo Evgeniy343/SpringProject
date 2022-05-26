@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
@@ -45,7 +46,7 @@ public class AdminPageController {
     public String account(@PathVariable String login, Model model) throws UserNotFoundException {
         CafeUserModel authorizedUser = userService.findByLogin(login);
         model.addAttribute("authorizedUser", authorizedUser);
-        return "cafe/html/account/account";
+        return "cafe/html/admin/account/account";
     }
 //
 //    @GetMapping("/users")
@@ -63,6 +64,7 @@ public class AdminPageController {
     @GetMapping("/main_page")
     public String mainPage(Model model) {
         model.addAttribute("categories", MealCategory.values());
+        model.addAttribute("meal", new MealModel());
         return "cafe/html/admin/main_page/main-page";
     }
 
@@ -181,5 +183,13 @@ public class AdminPageController {
         return "redirect:/admin/main_page";
     }
 
+    @PostMapping("/menu/find")
+    public String findMeal(@ModelAttribute("meal") MealModel meal, RedirectAttributes redirect) throws MealNotFoundException {
+        MealModel findMeal = mealService.findByName(meal.getName());
+        redirect.addAttribute("meal", findMeal);
+        String category = findMeal.getCategory().getName();
+        String mealUrl = "/admin/menu/" + category + "/meals/" + findMeal.getId();
+        return "redirect:" + mealUrl;
+    }
 
 }

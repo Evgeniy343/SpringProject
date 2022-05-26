@@ -55,3 +55,14 @@
         </form>
     </h1>
 </div>
+
+<div th:fragment="user_account_header">
+    <h1 class="main_article">
+        Welcome to Snacks at Zhendos
+        <img class="beer" th:src="@{/cafe/img/main_page/header.gif}" alt="Barrel of beer">
+
+        <form class="logout" th:action="@{/logout}" th:method="post">
+            <button type="submit">Logout</button>
+        </form>
+    </h1>
+</div>

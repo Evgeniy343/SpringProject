@@ -1,5 +1,6 @@
 package by.evgen.Cafe.controller;
 
+import by.evgen.Cafe.exception.MealNotFoundException;
 import by.evgen.Cafe.model.impl.MealCategory;
 import by.evgen.Cafe.service.CafeMealService;
 import org.springframework.beans.factory.annotation.Autowired;
