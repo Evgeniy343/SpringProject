@@ -1,6 +1,5 @@
 package by.evgen.Cafe.controller;
 
-import by.evgen.Cafe.model.impl.CafeUserModel;
 import by.evgen.Cafe.model.impl.MealCategory;
 import by.evgen.Cafe.service.CafeMealService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,19 +21,13 @@ public class MainPageController {
     }
 
     @GetMapping()
-    public String mainPage(Model model){
+    public String mainPage(Model model) {
         model.addAttribute("categories", MealCategory.values());
         return "cafe/html/main_page/main-page";
     }
 
-    @GetMapping("/authorization")
-    public String authorizationForm(Model model){
-        model.addAttribute("user",new CafeUserModel());
-        return "cafe/html/authentication/authorization";
-    }
-
     @GetMapping("/registration")
-    public String registrationForm(){
+    public String registrationForm() {
         return "cafe/html/authentication/registration";
     }
 

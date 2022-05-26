@@ -15,7 +15,7 @@
         <div class="category_meal_data">
             <p th:text="'Id - ' + ${meal.getId()}"></p>
             <p th:text="'Name - ' + ${meal.getName()}"></p>
-            <a th:href="@{/user/menu/{category}/meals/{id}(category=${category}, id=${meal.getId()})}">
+            <a th:href="@{/admin/menu/{category}/meals/{id}(category=${category}, id=${meal.getId()})}">
                 <img th:src="@{${meal.getImage()}}" th:alt="${meal.getName()}" alt="">
             </a>
         </div>

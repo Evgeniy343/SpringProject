@@ -2,10 +2,12 @@ package by.evgen.Cafe.model.impl;
 
 import by.evgen.Cafe.model.CafeModel;
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import org.hibernate.annotations.Parameter;
 
 @Data
 @Entity
@@ -13,7 +15,16 @@ import javax.validation.constraints.Size;
 public class CafeUserModel implements CafeModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "sequence-generator")
+    @GenericGenerator(
+            name = "sequence-generator",
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = {
+                    @Parameter(name = "sequence_name", value = "cafe_user_id_seq"),
+                    @Parameter(name = "initial_value", value = "1"),
+                    @Parameter(name = "increment_size", value = "1")
+            }
+    )
     @Column(name = "id")
     private Long id;
 
@@ -36,5 +47,4 @@ public class CafeUserModel implements CafeModel {
     @NotEmpty(message = "User name should not be empty")
     @Size(min = 1, max = 50, message = "User name should be between 1 and 50 characters")
     private String name;
-
 }

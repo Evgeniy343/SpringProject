@@ -25,7 +25,7 @@ public class CafeUserService implements UserService {
     }
 
     @Override
-    public List<CafeUserModel> findAll(){
+    public List<CafeUserModel> findAll() {
         List<CafeUserModel> cafeUsers = new ArrayList<>();
         repository.findAll().forEach(cafeUsers::add);
         return cafeUsers;
@@ -43,12 +43,12 @@ public class CafeUserService implements UserService {
     }
 
     @Override
-    public void save(CafeUserModel cafeUser){
+    public void save(CafeUserModel cafeUser) {
         repository.save(cafeUser);
     }
 
     @Override
-    public void deleteById(Long id){
+    public void deleteById(Long id) {
         repository.deleteById(id);
     }
 
@@ -58,7 +58,19 @@ public class CafeUserService implements UserService {
         List<CafeUserModel> cafeUsers = new ArrayList<>();
         repository.findAll().forEach(cafeUsers::add);
         for (CafeUserModel cafeUser : cafeUsers) {
-            if(cafeUser.getLogin().equals(login) && cafeUser.getPassword().equals(password)){
+            if (cafeUser.getLogin().equals(login) && cafeUser.getPassword().equals(password)) {
+                return cafeUser;
+            }
+        }
+        throw new UserNotFoundException(USER_NOT_FOUND_MESSAGE);
+    }
+
+    @Override
+    public CafeUserModel findByLogin(String login) throws UserNotFoundException {
+        List<CafeUserModel> cafeUsers = new ArrayList<>();
+        repository.findAll().forEach(cafeUsers::add);
+        for (CafeUserModel cafeUser : cafeUsers) {
+            if (cafeUser.getLogin().equals(login)) {
                 return cafeUser;
             }
         }

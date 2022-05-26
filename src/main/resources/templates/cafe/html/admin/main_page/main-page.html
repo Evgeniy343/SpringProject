@@ -10,8 +10,7 @@
 <body>
 
 
-<h1 th:insert="blocks/headers :: main_page_header"></h1>
-
+<h1 th:insert="blocks/headers :: admin_header"></h1>
 
 <div>
     <form class="search_form">
@@ -20,7 +19,7 @@
             <input class="search_button" type="submit" value="Search"></p>
     </form>
 
-    <div th:insert="blocks/category_panel :: category_panel"></div>
+    <div th:insert="blocks/category_panel :: admin_category_panel"></div>
 
 </div>
 </body>

@@ -3,34 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Authorization</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/blocks/headers.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/authentication/authorization.css}">
+    <link media="all" rel="stylesheet" type="text/css" th:href="@{/cafe/css/blocks/headers.css}">
+    <link media="all" rel="stylesheet" type="text/css" th:href="@{/cafe/css/authentication/authorization.css}">
 </head>
 <body>
 
 <h1 th:insert="blocks/headers :: header"></h1>
 
-<form th:method="post" th:action="@{/account/authorization}">
+<div>
+    <form name="f" th:action="@{/login}" th:method="post">
+        <div class="authorization_title">
+            <h1 class="secondary_title">Authorization</h1>
+        </div>
+        <div class="authorization_form">
+            <label th:for="username"><b>Login</b> </label>
+            <br>
+            <input type="text" name="username" id="username" placeholder="login"/>
 
-    <div class="authorization_title">
-        <h1 class="secondary_title">Authorization</h1>
-    </div>
-    <div class="authorization_form">
-        <label th:for="login"><b>Login</b> </label>
-        <br>
-        <input type="text" name="login" id="login" placeholder="  login"/>
-
-        <br/>
-        <label th:for="password"><b>Password</b> </label>
-        <br>
-        <input type="password" name="password" id="password" placeholder="  password"/>
-        <br/>
-        <br/>
-    </div>
-
-    <input class="sign_in" type="submit" value="Sign in">
-
-</form>
+            <br/>
+            <label th:for="password"><b>Password</b> </label>
+            <br>
+            <input type="password" name="password" id="password" placeholder="password"/>
+            <br/>
+            <br/>
+        </div>
+        <input class="sign_in" type="submit" value="Sign in">
+    </form>
+</div>
 
 </body>
 </html>

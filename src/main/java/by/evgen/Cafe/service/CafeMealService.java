@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class CafeMealService implements CafeService<MealModel>{
+public class CafeMealService implements CafeService<MealModel> {
     public static final String MEAL_NOT_FOUND_MESSAGE = "This meal not found";
     private final MealRepository repository;
 
@@ -42,7 +42,7 @@ public class CafeMealService implements CafeService<MealModel>{
     }
 
     @Override
-    public void save(MealModel meal){
+    public void save(MealModel meal) {
         repository.save(meal);
     }
 

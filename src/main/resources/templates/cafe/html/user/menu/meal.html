@@ -20,23 +20,5 @@
     <img th:src="@{${meal.getImage()}}" th:alt="${meal.getName()}" alt="">
 </div>
 
-<div>
-    <div class="delete">
-        <form th:action="@{/account/menu/{category}/meals/{id}/delete(category=${category},id=${meal.getId()})}"
-              th:method="get">
-            <input class="delete_button" type="submit" value="Delete"/>
-        </form>
-    </div>
-
-    <div class="edit">
-        <form th:action="@{/account/menu/{category}/meals/{id}/edit(category=${category}, id=${meal.getId()})}"
-              th:method="post">
-            <input class="edit_button" type="submit" value="Edit"/>
-        </form>
-    </div>
-</div>
-
-
-
 </body>
 </html>

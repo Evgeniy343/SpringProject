@@ -1,16 +1,16 @@
-.delete{
+.delete {
     margin-top: 15px;
     float: left;
     margin-left: 70px;
 }
 
-.edit{
+.edit {
     margin-top: 15px;
     float: right;
     margin-right: 1250px;
 }
 
-.edit_button{
+.edit_button {
     height: 30px;
     width: 90px;
     font-family: monospace;
@@ -20,7 +20,7 @@
     border: 3px solid maroon;
 }
 
-.delete_button{
+.delete_button {
     height: 30px;
     width: 90px;
     font-family: monospace;
@@ -30,20 +30,20 @@
     border: 3px solid maroon;
 }
 
-.meal_data{
+.meal_data {
     margin-top: 50px;
     margin-left: 30px;
 }
 
-.meal_data img{
+.meal_data img {
     height: 200px;
     width: 300px;
 }
 
-.meal_data p{
+.meal_data p {
     font-size: 30px;
     color: black;
     font-family: "Cambria Math", cursive;
     font-weight: bold;
-    text-shadow: 1px 1px 1px olivedrab,2px 2px 1px darkgreen;
+    text-shadow: 1px 1px 1px olivedrab, 2px 2px 1px darkgreen;
 }

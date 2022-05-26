@@ -1,32 +1,57 @@
 <div th:fragment="header">
     <h1 class="main_article">
         Welcome to Snacks at Zhendos
-        <img th:src="@{/cafe/img/main_page/header.gif}" alt="Barrel of beer">
+        <img class="beer" th:src="@{/cafe/img/main_page/header.gif}" alt="Barrel of beer">
+    </h1>
+</div>
+
+
+
+<div th:fragment="admin_header">
+    <h1 class="main_article">
+        Welcome to Snacks at Zhendos
+        <img class="beer" th:src="@{/cafe/img/main_page/header.gif}" alt="Barrel of beer">
+        <a th:href="@{'/admin/'+${#authentication.name}}">
+            <img class="role" th:src="@{/cafe/img/main_page/admin.jpg}" alt="admin">
+        </a>
+    </h1>
+</div>
+
+<div th:fragment="user_header">
+    <h1 class="main_article">
+        Welcome to Snacks at Zhendos
+        <img class="beer" th:src="@{/cafe/img/main_page/header.gif}" alt="Barrel of beer">
+        <a th:href="@{'/user/'+${#authentication.name}}">
+            <img class="role" th:src="@{/cafe/img/main_page/user.jpg}" alt="user">
+        </a>
     </h1>
 </div>
 
 <div th:fragment="main_page_header">
     <h1 class="main_article">
         Welcome to Snacks at Zhendos
-        <img th:src="@{/cafe/img/main_page/header.gif}" alt="Barrel of beer">
+        <img class="beer" th:src="@{/cafe/img/main_page/header.gif}" alt="Barrel of beer">
 
         <form class="registration" th:action="@{/main_page/registration}" th:method="get">
             <input type="submit" value="Sign up">
         </form>
 
-        <form class="authorization" th:action="@{/main_page/authorization}" th:method="get">
+        <form class="authorization" th:action="@{/login}" th:method="get">
             <input type="submit" value="Sign in">
         </form>
     </h1>
 </div>
 
-<div th:fragment="menu_header">
+<div th:fragment="admin_account_header">
     <h1 class="main_article">
         Welcome to Snacks at Zhendos
-        <img th:src="@{/cafe/img/main_page/header.gif}" alt="Barrel of beer">
+        <img class="beer" th:src="@{/cafe/img/main_page/header.gif}" alt="Barrel of beer">
 
-        <form class="create" th:action="@{/account/menu/create}" th:method="get">
-            <input class="create_button" type="submit" value="Create meal">
+        <form class="create" th:action="@{/admin/menu/create}" th:method="get">
+            <input type="submit" value="Create meal">
+        </form>
+        <form class="logout" th:action="@{/logout}" th:method="post">
+            <button type="submit">Logout</button>
         </form>
     </h1>
 </div>

@@ -28,7 +28,7 @@ public class MealModel implements CafeModel {
 
     @Column(name = "price")
     @NotNull(message = "Meal price should not be empty")
-    @Min(value = 0,message = "Meal price should be greater than 0")
+    @Min(value = 0, message = "Meal price should be greater than 0")
     private Double price;
 
     @Column(name = "category_id")

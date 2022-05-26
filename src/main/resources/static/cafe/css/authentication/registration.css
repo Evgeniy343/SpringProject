@@ -1,22 +1,22 @@
-.registration_title{
+.registration_title {
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
     width: 15em;
 }
 
-.secondary_title{
+.secondary_title {
     color: sienna;
     font-family: "Cambria Math", cursive;
     font-weight: bold;
-    text-shadow: 1px 1px 1px olivedrab,2px 2px 1px darkgreen;
+    text-shadow: 1px 1px 1px olivedrab, 2px 2px 1px darkgreen;
 }
 
-.registration_form{
+.registration_form {
     margin-left: 500px;
 }
 
-#name{
+#name {
     width: 500px;
     height: 30px;
     border-radius: 10px;
@@ -24,7 +24,7 @@
     border: 3px solid maroon;
 }
 
-#login{
+#login {
     width: 500px;
     height: 30px;
     border-radius: 10px;
@@ -32,7 +32,7 @@
     border: 3px solid maroon;
 }
 
-#password{
+#password {
     width: 500px;
     height: 30px;
     border-radius: 10px;
@@ -40,7 +40,7 @@
     border: 3px solid maroon;
 }
 
-#password_repeat{
+#password_repeat {
     width: 500px;
     height: 30px;
     border-radius: 10px;
@@ -48,7 +48,7 @@
     border: 3px solid maroon;
 }
 
-.sign_up{
+.sign_up {
     margin-left: 710px;
     height: 30px;
     width: 90px;

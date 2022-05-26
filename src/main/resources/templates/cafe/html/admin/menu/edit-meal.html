@@ -11,7 +11,7 @@
 <h1 th:insert="blocks/headers :: header"></h1>
 
 <form class="edit_form" action="#"
-      th:action="@{/account/menu/{category}/meals/{id}/edit(category=${category}, id=${meal.getId()})}"
+      th:action="@{/admin/menu/{category}/meals/{id}/edit(category=${category}, id=${meal.getId()})}"
       th:object="${meal}"
       th:method="post">
 

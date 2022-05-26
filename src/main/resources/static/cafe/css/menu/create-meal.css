@@ -1,9 +1,9 @@
-.create_form{
+.create_form {
     margin-top: 100px;
     margin-left: 500px;
 }
 
-#name{
+#name {
     width: 500px;
     height: 30px;
     border-radius: 10px;
@@ -11,7 +11,7 @@
     border: 3px solid maroon;
 }
 
-#price{
+#price {
     width: 500px;
     height: 30px;
     border-radius: 10px;
@@ -19,7 +19,7 @@
     border: 3px solid maroon;
 }
 
-.create_button{
+.create_button {
     margin-left: 210px;
     height: 40px;
     width: 110px;
