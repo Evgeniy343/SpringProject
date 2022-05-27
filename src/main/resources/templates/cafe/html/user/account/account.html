@@ -5,13 +5,18 @@
     <title>Account</title>
     <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/blocks/headers.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/menu/meals.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/account/account.css}">
 </head>
 
-<h1 th:insert="blocks/headers :: user_account_header"></h1>
+<h1 th:insert="blocks/headers :: authentication_account_header"></h1>
 <div class="category_meal_data">
     <p th:text="'ID - ' + ${authorizedUser.getId()}">VALUE</p>
     <p th:text="'Name - ' + ${authorizedUser.getName()}">VALUE</p>
     <p th:text="'Role - ' + ${authorizedUser.getRole()}">VALUE</p>
+    <p>
+    <form th:method="get" th:action="@{/user/main_page}">
+        <input type="submit" class="main_page" value="Main page">
+    </form>
 </div>
 <body>
 

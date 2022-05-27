@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Meal not found</title>
+</head>
+<body>
+<h1 th:align="center">The dish you are looking for was not found.</h1>
+<p th:align="center">
+    <img th:src="@{/cafe/img/error/500.jpg}" alt="500">
+<p sec:authorize="hasRole('ROLE_USER')" th:align="center">
+    Go back to <a th:href="@{/user/main_page}">home page</a>.
+</p>
+<p sec:authorize="hasRole('ROLE_ADMIN')" th:align="center">
+    Go back to <a th:href="@{/admin/main_page}">home page</a>.
+</body>
+</html>

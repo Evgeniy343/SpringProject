@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Snacks at Zhendos</title>
@@ -10,7 +12,7 @@
 <body>
 
 
-<h1 th:insert="blocks/headers :: admin_header"></h1>
+<h1 th:insert="blocks/headers :: authentication_header"></h1>
 
 <div>
     <form class="search_form" th:method="post" th:action="@{/admin/menu/find}" th:object="${meal}">

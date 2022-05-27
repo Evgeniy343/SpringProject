@@ -24,7 +24,6 @@ import javax.validation.Valid;
  */
 @Controller
 @RequestMapping("/admin")
-@CafeModelNotFoundExceptionHandler
 public class AdminPageController {
 
     /**

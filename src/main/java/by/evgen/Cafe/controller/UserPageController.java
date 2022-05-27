@@ -2,6 +2,7 @@ package by.evgen.Cafe.controller;
 
 import by.evgen.Cafe.exception.MealNotFoundException;
 import by.evgen.Cafe.exception.UserNotFoundException;
+import by.evgen.Cafe.handler.CafeModelNotFoundExceptionHandler;
 import by.evgen.Cafe.model.impl.CafeUserModel;
 import by.evgen.Cafe.model.impl.MealCategory;
 import by.evgen.Cafe.model.impl.MealModel;
