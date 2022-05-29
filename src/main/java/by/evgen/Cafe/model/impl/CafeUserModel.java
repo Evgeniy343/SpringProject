@@ -2,12 +2,10 @@ package by.evgen.Cafe.model.impl;
 
 import by.evgen.Cafe.model.CafeModel;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import org.hibernate.annotations.Parameter;
 
 @Data
 @Entity

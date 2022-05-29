@@ -13,8 +13,6 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
-import org.thymeleaf.spring5.SpringTemplateEngine;
 
 @Configuration
 @RequiredArgsConstructor

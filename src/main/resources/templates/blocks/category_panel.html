@@ -1,5 +1,8 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
 <div th:fragment="category_panel">
-    <ul class="category_list">
+    <ul sec:authorize="isAnonymous()" class="category_list">
         <p class="categories_label">Categories</p>
         <a th:href="@{/main_page/{category}/meals(category=${categories[0].name})}">
             <li><img th:src="@{/cafe/img/main_page/shawarma.jpg}" alt="Shawarma" title="Shawarma"></li>
@@ -29,11 +32,7 @@
             <li><img th:src="@{/cafe/img/main_page/desert.jpg}" alt="Desert" title="Desert"></li>
         </a>
     </ul>
-</div>
-
-
-<div th:fragment="admin_category_panel">
-    <ul class="category_list">
+    <ul sec:authorize="hasRole('ROLE_ADMIN')" class="category_list">
         <p class="categories_label">Categories</p>
         <a th:href="@{/admin/menu/{category}/meals(category=${categories[0].name})}">
             <li><img th:src="@{/cafe/img/main_page/shawarma.jpg}" alt="Shawarma" title="Shawarma"></li>
@@ -63,11 +62,7 @@
             <li><img th:src="@{/cafe/img/main_page/desert.jpg}" alt="Desert" title="Desert"></li>
         </a>
     </ul>
-</div>
-
-
-<div th:fragment="user_category_panel">
-    <ul class="category_list">
+    <ul sec:authorize="hasRole('ROLE_USER')" class="category_list">
         <p class="categories_label">Categories</p>
         <a th:href="@{/user/menu/{category}/meals(category=${categories[0].name})}">
             <li><img th:src="@{/cafe/img/main_page/shawarma.jpg}" alt="Shawarma" title="Shawarma"></li>

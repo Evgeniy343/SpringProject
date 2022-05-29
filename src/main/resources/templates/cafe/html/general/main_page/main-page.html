@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snacks at Zhendos</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/main_page/main_page.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/blocks/headers.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/cafe/css/blocks/category_panel.css}">
+</head>
+<body>
+
+
+<h1 sec:authorize="isAnonymous()" th:insert="blocks/headers :: main_page_header"></h1>
+<h1 sec:authorize="isAuthenticated()" th:insert="blocks/headers :: authentication_header"></h1>
+
+
+<div>
+    <form sec:authorize="hasRole('ROLE_ADMIN')" class="search_form" th:method="post" th:action="@{/admin/menu/find}"
+          th:object="${meal}">
+        <label for="find_in_admin"></label>
+        <p><input class="search_field" type="search" name="q" th:field="*{name}" placeholder="Find meal"
+                  id="find_in_admin">
+            <input class="search_button" type="submit" value="Search"></p>
+    </form>
+
+    <form sec:authorize="hasRole('ROLE_USER')" class="search_form" th:method="post" th:action="@{/user/menu/find}"
+          th:object="${meal}">
+        <label for="find_in_user"></label>
+        <p><input class="search_field" type="search" name="q" th:field="*{name}" placeholder="Find meal"
+                  id="find_in_user">
+            <input class="search_button" type="submit" value="Search"></p>
+    </form>
+
+    <form sec:authorize="isAnonymous()" class="search_form" th:method="post" th:action="@{/main_page/menu/find}"
+          th:object="${meal}">
+        <label for="find_in_anonymous"></label>
+        <p><input class="search_field" type="search" name="q" th:field="*{name}" placeholder="Find meal"
+                  id="find_in_anonymous">
+            <input class="search_button" type="submit" value="Search"></p>
+    </form>
+    <div th:insert="blocks/category_panel :: category_panel"></div>
+</div>
+
+
+</body>
+</html>

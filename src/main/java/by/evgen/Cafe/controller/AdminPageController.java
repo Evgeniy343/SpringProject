@@ -2,7 +2,6 @@ package by.evgen.Cafe.controller;
 
 import by.evgen.Cafe.exception.MealNotFoundException;
 import by.evgen.Cafe.exception.UserNotFoundException;
-import by.evgen.Cafe.handler.CafeModelNotFoundExceptionHandler;
 import by.evgen.Cafe.model.impl.CafeUserModel;
 import by.evgen.Cafe.model.impl.MealCategory;
 import by.evgen.Cafe.model.impl.MealModel;
@@ -45,26 +44,14 @@ public class AdminPageController {
     public String account(@PathVariable String login, Model model) throws UserNotFoundException {
         CafeUserModel authorizedUser = userService.findByLogin(login);
         model.addAttribute("authorizedUser", authorizedUser);
-        return "cafe/html/admin/account/account";
+        return "cafe/html/general/account/account";
     }
-//
-//    @GetMapping("/users")
-//    public String viewUsers(Model model) {
-//        model.addAttribute("users", userService.findAll());
-//        return "cafe_user/get/users";
-//    }
-//
-//    @GetMapping("/users/{id}")
-//    public String viewUser(@PathVariable("id") Long id, Model model) throws UserNotFoundException {
-//        model.addAttribute("user", userService.findById(id));
-//        return "cafe_user/get/user";
-//    }
 
     @GetMapping("/main_page")
     public String mainPage(Model model) {
         model.addAttribute("categories", MealCategory.values());
         model.addAttribute("meal", new MealModel());
-        return "cafe/html/admin/main_page/main-page";
+        return "cafe/html/general/main_page/main-page";
     }
 
     /**
@@ -77,7 +64,7 @@ public class AdminPageController {
     @GetMapping("/menu/{category}/meals")
     public String viewMeals(@PathVariable("category") String categoryName, Model model) {
         model.addAttribute("meals", mealService.findAll());
-        return "cafe/html/admin/menu/meals";
+        return "cafe/html/general/menu/meals";
     }
 
     /**
@@ -94,7 +81,7 @@ public class AdminPageController {
     public String viewMeal(@PathVariable("category") String categoryName,
                            @PathVariable("id") Long id, Model model) throws MealNotFoundException {
         model.addAttribute("meal", mealService.findById(id));
-        return "cafe/html/admin/menu/meal";
+        return "cafe/html/general/menu/meal";
     }
 
     /**

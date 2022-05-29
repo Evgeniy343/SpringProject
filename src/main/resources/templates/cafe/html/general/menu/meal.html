@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Meal</title>
@@ -20,7 +23,7 @@
     <img th:src="@{${meal.getImage()}}" th:alt="${meal.getName()}" alt="">
 </div>
 
-<div>
+<div sec:authorize="hasRole('ROLE_ADMIN')">
     <div class="delete">
         <form th:action="@{/admin/menu/{category}/meals/{id}/delete(category=${category},id=${meal.getId()})}"
               th:method="post">
@@ -35,7 +38,6 @@
         </form>
     </div>
 </div>
-
 
 </body>
 </html>

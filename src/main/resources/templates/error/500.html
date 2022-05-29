@@ -15,6 +15,12 @@
     Go back to <a th:href="@{/user/main_page}">home page</a>.
 </p>
 <p sec:authorize="hasRole('ROLE_ADMIN')" th:align="center">
-    Go back to <a th:href="@{/admin/main_page}">home page</a>.
+    Go back to
+    <a th:href="@{/admin/main_page}">home page</a>
+</p>
+<p sec:authorize="isAnonymous()" th:align="center">
+    Go back to
+    <a th:href="@{/main_page}">home page</a>
+</p>
 </body>
 </html>

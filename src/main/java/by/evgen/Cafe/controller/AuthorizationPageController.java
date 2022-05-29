@@ -20,7 +20,7 @@ public class AuthorizationPageController {
     @GetMapping("/login")
     public String authorizationForm(Model model) {
         model.addAttribute("user", new CafeUserModel());
-        return "cafe/html/authentication/authorization";
+        return "cafe/html/general/authentication/authorization";
     }
 
     @PostMapping("/login")
@@ -28,7 +28,7 @@ public class AuthorizationPageController {
                                       Model model) throws UserNotFoundException {
         CafeUserModel authorizedUser = userService.findByLoginAndPassword(login, password);
         if (authorizedUser == null) {
-            return "cafe/html/authentication/authorization";
+            return "cafe/html/general/authentication/authorization";
         }
         model.addAttribute("authorizedUser", authorizedUser);
         String accountUrl = "/admin/" + authorizedUser.getId();

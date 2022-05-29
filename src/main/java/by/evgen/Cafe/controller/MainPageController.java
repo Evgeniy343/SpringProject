@@ -1,7 +1,9 @@
 package by.evgen.Cafe.controller;
 
+import by.evgen.Cafe.exception.MealNotFoundException;
 import by.evgen.Cafe.model.impl.CafeUserModel;
 import by.evgen.Cafe.model.impl.MealCategory;
+import by.evgen.Cafe.model.impl.MealModel;
 import by.evgen.Cafe.model.impl.RoleType;
 import by.evgen.Cafe.service.CafeMealService;
 import by.evgen.Cafe.service.CafeUserService;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
@@ -29,19 +32,20 @@ public class MainPageController {
     @GetMapping()
     public String mainPage(Model model) {
         model.addAttribute("categories", MealCategory.values());
-        return "cafe/html/main_page/main-page";
+        model.addAttribute("meal", new MealModel());
+        return "cafe/html/general/main_page/main-page";
     }
 
     @GetMapping("/registration")
     public String registrationForm(Model model) {
         model.addAttribute("user", new CafeUserModel());
-        return "cafe/html/authentication/registration";
+        return "cafe/html/general/authentication/registration";
     }
 
     @PostMapping("/registration")
     public String registration(@ModelAttribute("user") @Valid CafeUserModel user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "cafe/html/authentication/registration";
+            return "cafe/html/general/authentication/registration";
         }
         user.setRole(RoleType.USER);
         userService.save(user);
@@ -51,6 +55,22 @@ public class MainPageController {
     @GetMapping("/{category}/meals")
     public String viewMeals(@PathVariable("category") String categoryName, Model model) {
         model.addAttribute("meals", mealService.findAll());
-        return "cafe/html/menu/meals";
+        return "cafe/html/general/menu/meals";
+    }
+
+    @GetMapping("/{category}/meals/{id}")
+    public String viewMeal(@PathVariable("id") Long id, @PathVariable String category, Model model)
+            throws MealNotFoundException {
+        model.addAttribute("meal", mealService.findById(id));
+        return "cafe/html/general/menu/meal";
+    }
+
+    @PostMapping("/menu/find")
+    public String findMeal(@ModelAttribute("meal") MealModel meal, RedirectAttributes redirect) throws MealNotFoundException {
+        MealModel findMeal = mealService.findByName(meal.getName());
+        redirect.addAttribute("meal", findMeal);
+        String category = findMeal.getCategory().getName();
+        String mealUrl = "/main_page/" + category + "/meals/" + findMeal.getId();
+        return "redirect:" + mealUrl;
     }
 }
